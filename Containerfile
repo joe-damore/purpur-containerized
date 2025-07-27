@@ -20,6 +20,8 @@ RUN apk upgrade --update && \
 # App Image #
 #############
 FROM alpine:${ALPINE_LINUX_VERSION} as purpur
+ARG ALPINE_LINUX_VERSION
+ARG PURPUR_MC_VERSION
 
 # Set working dir, create purpur dirs
 WORKDIR /
@@ -27,7 +29,7 @@ RUN mkdir /purpur && \
     mkdir /purpur_world
 
 # Copy Purpur binary
-COPY --from=purpur-build /purpur/purpur-mc-v{{ purpur_mc_version }}.jar /purpur/purpur.jar
+COPY --from=purpur-build /purpur/purpur-mc-v${PURPUR_MC_VERSION}.jar /purpur/purpur.jar
 COPY ./start-purpur.sh /purpur/start-purpur.sh
 
 RUN apk upgrade --update && \
