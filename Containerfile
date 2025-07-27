@@ -14,7 +14,7 @@ WORKDIR /purpur
 # Upgrade packages, install dependencies, download purpur
 RUN apk upgrade --update && \
     apk add --no-cache openssl wget && \
-    apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community openjdk17-jre && \
+    apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community openjdk21-jre && \
     wget "https://api.purpurmc.org/v2/purpur/${PURPUR_MC_VERSION}/latest/download" -O "/purpur/purpur-mc-v${PURPUR_MC_VERSION}.jar"
 
 #############
@@ -35,7 +35,7 @@ COPY ./start-purpur.sh /purpur/start-purpur.sh
 
 RUN apk upgrade --update && \
     apk add --no-cache bash curl dumb-init && \
-    apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community openjdk17-jre && \
+    apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community openjdk21-jre && \
     chmod +x /purpur/start-purpur.sh
 
 EXPOSE 25565
