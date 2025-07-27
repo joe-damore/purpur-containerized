@@ -1,9 +1,9 @@
 #!/bin/sh
 
-cd /purpur_world || exit 1
+cd /purpur_data || exit 1
 
-if [ ! -f /purpur_world/eula.txt ]; then
-    echo "eula=true" >> /purpur_world/eula.txt
+if [ ! -f /purpur_data/eula.txt ]; then
+    echo "eula=true" >> /purpur_data/eula.txt
     echo "Created 'eula.txt'"
 fi
 
