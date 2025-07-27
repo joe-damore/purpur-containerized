@@ -27,7 +27,7 @@ ARG PURPUR_MC_VERSION
 # Set working dir, create purpur dirs
 WORKDIR /
 RUN mkdir /purpur && \
-    mkdir /purpur_world
+    mkdir /purpur_data
 
 # Copy Purpur binary
 COPY --from=purpur-build /purpur/purpur-mc-v${PURPUR_MC_VERSION}.jar /purpur/purpur.jar
@@ -40,7 +40,7 @@ RUN apk upgrade --update && \
 
 EXPOSE 25565
 
-VOLUME /purpur_world
+VOLUME /purpur_data
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["/purpur/start-purpur.sh"]
