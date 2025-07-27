@@ -5,6 +5,7 @@ ARG PURPUR_MC_VERSION=1.21
 # Build Image #
 ###############
 FROM alpine:${ALPINE_LINUX_VERSION} as purpur-build
+ENV PURPUR_MC_VERSION=$PURPUR_MC_VERSION
 
 # Create purpur directory and set working directory
 RUN mkdir /purpur
