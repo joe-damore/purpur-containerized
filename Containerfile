@@ -24,6 +24,9 @@ FROM alpine:${ALPINE_LINUX_VERSION} as purpur
 ARG ALPINE_LINUX_VERSION
 ARG PURPUR_MC_VERSION
 
+ENV MEMORY_MIN=1G
+ENV MEMORY_MAX=4G
+
 # Set working dir, create purpur dirs
 WORKDIR /
 RUN mkdir /purpur && \

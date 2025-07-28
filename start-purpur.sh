@@ -14,8 +14,8 @@ echo "Starting Purpur..."
 
 # TODO Use env for memory min/max.
 java \
-    -Xms12G \
-    -Xmx12G \
+    -Xms$MEMORY_MIN \
+    -Xmx$MEMORY_MAX \
     -XX:+UseG1GC \
     -XX:+ParallelRefProcEnabled \
     -XX:MaxGCPauseMillis=200 \
